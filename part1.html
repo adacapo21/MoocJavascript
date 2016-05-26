@@ -4,7 +4,27 @@
 </head>
 <body onload = “onload”>
 <script>
-<!--javascript goes he-->
+    var colors = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+    var guess_input;
+    var guesses = 0;
+    var finished = false;
+    function do_game() {
+        //randomly select one of the colors of the array
+        var target_index = Math.random() * colors.length;
+        var choice = Math.floor(target_index);
+        target = colors[choice];
+        while(!finished) {
+            //asks the thought of the player and shows the color's array
+            guess_input = prompt("I am thinking of one of these colors:\n\n" + "blue, cyan, gold, gray, green, magenta, orange, red, white, yellow\n\n" + "What color am I thinking of?");
+            guesses += 1;
+            alert("Player input is :"+ guess_input);
+            if (guess_input == target ){
+            finished = true;
+            alert("The player 's guess is the same as the target")}
+            else finished = false;
+        }
+    }
+    do_game();
 </script >
 </body>
 </html>
